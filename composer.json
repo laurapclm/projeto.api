@@ -1,0 +1,19 @@
+{
+  "name": "laura/doceria-api",
+  "description": "API REST simples de uma doceria",
+  "require": {
+    "php": ">=8.3",
+    "zircote/swagger-php": "^4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Config\\": "Config/",
+      "Model\\": "Model/",
+      "Controller\\": "Controller/",
+      "Helper\\": "Helper/"
+    }
+  },
+  "scripts": {
+    "docs": "php gerar-docs.php"
+  }
+}
