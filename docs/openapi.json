@@ -1,0 +1,261 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Doceria",
+    "version": "1.0.0",
+    "description": "API REST para gerenciamento de uma doceria"
+  },
+  "servers": [
+    {
+      "url": "http://projeto.api-main.test"
+    }
+  ],
+  "paths": {
+    "/api/usuarios/registrar": {
+      "post": {
+        "tags": ["Usuários"],
+        "summary": "Cadastrar usuário",
+        "responses": {
+          "201": {
+            "description": "Usuário cadastrado"
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "409": {
+            "description": "Email já cadastrado"
+          }
+        }
+      }
+    },
+    "/api/usuarios/login": {
+      "post": {
+        "tags": ["Usuários"],
+        "summary": "Fazer login",
+        "responses": {
+          "200": {
+            "description": "Login realizado"
+          },
+          "401": {
+            "description": "Email ou senha incorretos"
+          }
+        }
+      }
+    },
+    "/api/usuarios/logout": {
+      "post": {
+        "tags": ["Usuários"],
+        "summary": "Sair da conta",
+        "responses": {
+          "200": {
+            "description": "Logout realizado"
+          }
+        }
+      }
+    },
+    "/api/categorias": {
+      "get": {
+        "tags": ["Categorias"],
+        "summary": "Listar categorias",
+        "responses": {
+          "200": {
+            "description": "Lista de categorias"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Categorias"],
+        "summary": "Criar categoria",
+        "responses": {
+          "201": {
+            "description": "Categoria criada"
+          }
+        }
+      }
+    },
+    "/api/categorias/{id}": {
+      "get": {
+        "tags": ["Categorias"],
+        "summary": "Buscar categoria",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Categoria encontrada"
+          },
+          "404": {
+            "description": "Categoria não encontrada"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Categorias"],
+        "summary": "Atualizar categoria",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Categoria atualizada"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Categorias"],
+        "summary": "Excluir categoria",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Categoria excluída"
+          }
+        }
+      }
+    },
+    "/api/produtos": {
+      "get": {
+        "tags": ["Produtos"],
+        "summary": "Listar produtos",
+        "parameters": [
+          {
+            "name": "categoria",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "busca",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de produtos"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Produtos"],
+        "summary": "Criar produto",
+        "responses": {
+          "201": {
+            "description": "Produto criado"
+          },
+          "401": {
+            "description": "Não autenticado"
+          }
+        }
+      }
+    },
+    "/api/produtos/{id}": {
+      "get": {
+        "tags": ["Produtos"],
+        "summary": "Buscar produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto encontrado"
+          },
+          "404": {
+            "description": "Produto não encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Produtos"],
+        "summary": "Atualizar produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto atualizado"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Produtos"],
+        "summary": "Atualizar produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto atualizado"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Produtos"],
+        "summary": "Excluir produto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto excluído"
+          }
+        }
+      }
+    }
+  }
+}
